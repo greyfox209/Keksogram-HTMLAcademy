@@ -20,7 +20,7 @@ const stringCount = (string, maxCount) => {
 
 stringCount('Test message', 15);
 
-// Генерация случайного элекмента массива
+// Генерация случайного элемента массива
 const getRandomElementArr = (array) => {
   return array[getRandomInt(0, array.length - 1)];
 };

@@ -45,7 +45,7 @@ const Comments = {
   MAX: 5,
 };
 
-const IdNumber = {
+const CommentIdNumber = {
   MIN: 0,
   MAX: 999,
 };
@@ -62,7 +62,7 @@ const addComments = () => {
 
   for (let i = 0; i < getRandomInt(Comments.MIN, Comments.MAX); i++) {
     comments.push({
-      id: getRandomInt(IdNumber.MIN, IdNumber.MAX),
+      id: getRandomInt(CommentIdNumber.MIN, CommentIdNumber.MAX),
       avatar: 'img/avatar-' + getRandomInt(AvatarNumber.MIN, AvatarNumber.MAX) + '.svg',
       message: getRandomElementArr(MESSAGES),
       name: getRandomElementArr(NAMES),
@@ -75,7 +75,7 @@ const addComments = () => {
 const addPhotos = () => {
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
-      id: i,
+      id: i + 1,
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomElementArr(DESCRIPTION_PHOTO),
       likes: getRandomInt(Likes.MIN, Likes.MAX),
