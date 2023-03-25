@@ -13,7 +13,7 @@ const getRandomInt = (min, max) => {
 
 getRandomInt(1, 10);
 
-// Проверка строки
+// Проверка длины строки
 const stringCount = (string, maxCount) => {
   return string.length <= maxCount;
 };
