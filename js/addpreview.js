@@ -1,7 +1,7 @@
 import photos from './data.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const pictureList = document.querySelector('.pictures');
+const picturesList = document.querySelector('.pictures');
 
 const renderPhoto = ({ url, comments, likes }) => {
   const photoPreview = pictureTemplate.cloneNode(true);

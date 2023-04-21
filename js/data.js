@@ -57,33 +57,23 @@ const AvatarNumber = {
 
 let photos = [];
 
-const addComments = () => {
-  const comments = [];
-
-  for (let i = 0; i < getRandomInt(Comments.MIN, Comments.MAX); i++) {
-    comments.push({
-      id: getRandomInt(CommentIdNumber.MIN, CommentIdNumber.MAX),
-      avatar: 'img/avatar-' + getRandomInt(AvatarNumber.MIN, AvatarNumber.MAX) + '.svg',
-      message: getRandomElementArr(MESSAGES),
-      name: getRandomElementArr(NAMES),
-    });
-  }
-
-  return comments;
-};
-
 const addPhotos = () => {
   for (let i = 0; i < PHOTO_COUNT; i++) {
     photos.push({
-      id: i + 1,
+      id: i,
       url: 'photos/' + (i + 1) + '.jpg',
       description: getRandomElementArr(DESCRIPTION_PHOTO),
       likes: getRandomInt(Likes.MIN, Likes.MAX),
-      comments: addComments(),
+      comments: [{
+        id: getRandomInt(0, 999),
+        avatar: 'img/avatar-' + getRandomInt(1, 6) + '.svg',
+        message: getRandomElementArr(MESSAGES),
+        name: getRandomElementArr(NAMES),
+      }],
     });
   }
 };
 
 addPhotos();
 
-export { photos };
+export default photos;
