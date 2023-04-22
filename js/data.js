@@ -1,8 +1,13 @@
 import { getRandomInt, getRandomElementArr } from './util.js';
 
-const PHOTO_COUNT = 25;
+const photos = [];
+const numberOfPhotos = 25;
+const likes = {
+  MIN: 15,
+  MAX: 200,
+}
 
-const NAMES = [
+const names = [
   'Серёга',
   'Артём',
   'Дима',
@@ -15,7 +20,7 @@ const NAMES = [
   'Банан Серафимович',
 ];
 
-const DESCRIPTION_PHOTO = [
+const descriptionPhoto = [
   'No Filter',
   'Отец фотографии',
   'Зацените фотку!',
@@ -24,7 +29,7 @@ const DESCRIPTION_PHOTO = [
   'Мой скилл растёт',
 ];
 
-const MESSAGES = [
+const comments = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.',
@@ -33,47 +38,32 @@ const MESSAGES = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают.',
   'Как можно было поймать такой неудачный момент?!',
-];
+]
 
-const Likes = {
-  MIN: 15,
-  MAX: 200,
-};
-
-const Comments = {
-  MIN: 1,
-  MAX: 5,
-};
-
-const CommentIdNumber = {
-  MIN: 0,
-  MAX: 999,
-};
-
-const AvatarNumber = {
-  MIN: 1,
-  MAX: 6,
-};
-
-let photos = [];
+const addComments = () => {
+  const commentsArr = [];
+  for (let i = 0; i < getRandomInt(3, 10); i++) {
+    commentsArr.push({
+      id: getRandomInt(0, 999),
+      avatar: 'img/avatar-' + getRandomInt(1, 6) + '.svg',
+      message: getRandomElementArr(comments),
+      name: getRandomElementArr(names),
+    })
+  }
+  return commentsArr;
+}
 
 const addPhotos = () => {
-  for (let i = 0; i < PHOTO_COUNT; i++) {
+  for (let i = 0; i < numberOfPhotos; i++) {
     photos.push({
       id: i,
       url: 'photos/' + (i + 1) + '.jpg',
-      description: getRandomElementArr(DESCRIPTION_PHOTO),
-      likes: getRandomInt(Likes.MIN, Likes.MAX),
-      comments: [{
-        id: getRandomInt(0, 999),
-        avatar: 'img/avatar-' + getRandomInt(1, 6) + '.svg',
-        message: getRandomElementArr(MESSAGES),
-        name: getRandomElementArr(NAMES),
-      }],
-    });
+      description: getRandomElementArr(descriptionPhoto),
+      likes: getRandomInt(likes.MIN, likes.MAX),
+      comments: addComments(),
+    })
   }
-};
-
+}
 addPhotos();
 
 export default photos;
