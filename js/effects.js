@@ -1,9 +1,3 @@
-const Slider = {
-  MAX: 100,
-  MIN: 0,
-  STEP: 1,
-};
-
 //слайдер
 const effectRadioGroup = document.querySelector('.img-upload__effects');
 const effectLevel = document.querySelector('.img-upload__effect-level');
@@ -13,7 +7,11 @@ const effectLevelValue = document.querySelector('.effect-level__value');
 
 effectLevel.classList.add('visually-hidden')
 
-
+const Slider = {
+  MAX: 100,
+  MIN: 0,
+  STEP: 1,
+};
 
 let lastClass = '';
 
@@ -76,4 +74,3 @@ effectLevelSlider.noUiSlider.on('change', () => {
   uploadPreviewImg.style.filter = effects[lastClass.replace('effects__preview--', '')]();
 });
 
-export {effectLevel, lastClass};

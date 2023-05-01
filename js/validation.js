@@ -64,7 +64,6 @@ inputHashtag.addEventListener('input', () => {
   if (isLongHashtag) {
     inputHashtag.setCustomValidity('Максимальная длина хэш-тега 20 символов, включая решетку');
   }
-
   if (inputArray.length > MAX_HASHTAGS) {
     inputHashtag.setCustomValidity('Максимум 5 хэш-тегов');
   }
