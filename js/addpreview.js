@@ -18,7 +18,7 @@ const renderPhoto = (picture) => {
   return photoPreview;
 };
 
-const renderPhotos = () => {
+const renderPhotos = (photos) => {
   let picturesListFragment = document.createDocumentFragment();
 
   photos.forEach((photo) => {

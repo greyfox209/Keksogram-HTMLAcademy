@@ -13,6 +13,7 @@ const removeAllert = (type) => {
   document.removeEventListener('keydown', onAlertEscKeydown);
 };
 
+
 const showError = (text, button) => {
   const errorElement = errorTemplate.cloneNode(true);
 
@@ -36,7 +37,7 @@ const showError = (text, button) => {
 
   errorFragment.appendChild(errorElement);
   main.appendChild(errorFragment);
-};
+}
 
 const successTemplate = document.querySelector('#success').content;
 const successFragment = document.createDocumentFragment();
@@ -63,6 +64,6 @@ const showSuccess = (text) => {
 
   successFragment.appendChild(successElement);
   main.appendChild(successFragment);
-};
+}
 
 export { showError, showSuccess };

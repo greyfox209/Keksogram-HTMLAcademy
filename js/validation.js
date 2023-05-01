@@ -12,7 +12,7 @@ inputComment.addEventListener('input', () => {
   if (inputCommentText.length > MAX_COMMENTLENGTH) {
     inputComment.setCustomValidity('Максимум 140 символов');
   }
-})
+});
 
 inputHashtag.addEventListener('input', () => {
   inputHashtag.setCustomValidity('');
@@ -67,14 +67,14 @@ inputHashtag.addEventListener('input', () => {
   if (inputArray.length > MAX_HASHTAGS) {
     inputHashtag.setCustomValidity('Максимум 5 хэш-тегов');
   }
-})
+});
 
 const onEscapeDown = (evt) => {
   if (evt.key === ('Escape' || 'Esc')) {
     evt.preventDefault();
     evt.stopPropagation();
   }
-}
+};
 
-inputHashtag.addEventListener('keydown', onEscapeDown)
-inputComment.addEventListener('keydown', onEscapeDown)
+inputHashtag.addEventListener('keydown', onEscapeDown);
+inputComment.addEventListener('keydown', onEscapeDown);

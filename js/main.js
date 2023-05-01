@@ -7,10 +7,10 @@ import './validation.js';
 
 const onSuccess = (data) => {
   renderPhotos(data.slice())
-}
+};
 
 const onError = () => {
   showError('Ошибка загрузки, попробуйте еще раз', 'Закрыть')
-}
+};
 
-request(onSuccess, onError, 'GET')
+request(onSuccess, onError, 'GET');

@@ -11,7 +11,7 @@ const Slider = {
   MAX: 100,
   MIN: 0,
   STEP: 1,
-};
+}
 
 let lastClass = '';
 
@@ -40,7 +40,7 @@ const effects = {
     effectLevel.classList.remove('visually-hidden')
     return `brightness(${(parseInt(effectLevelValue.value, 10) * 3) * 0.01})`;
   },
-};
+}
 
 const onEffectRadioGroupClick = (evt) => {
   if (evt.target.classList.contains('effects__preview')) {
@@ -73,4 +73,3 @@ effectLevelSlider.noUiSlider.on('change', () => {
 
   uploadPreviewImg.style.filter = effects[lastClass.replace('effects__preview--', '')]();
 });
-

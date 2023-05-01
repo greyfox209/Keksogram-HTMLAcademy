@@ -7,25 +7,25 @@ const uploadInput = document.querySelector('#upload-file');
 const uploadModalClose = document.querySelector('#upload-cancel')
 
 // открываем окно фильтров после загрузки файла
-uploadInput.addEventListener('change', () => {
+uploadInput.addEventListener('change', function () {
   resetSettings();
   uploadModal.classList.remove('hidden');
   scrollOff.classList.add('modal-open');
-})
+});
 
 // закрытие окна
 const closeModal = () => {
   uploadModal.classList.add('hidden');
   scrollOff.classList.remove('modal-open');
   uploadInput.value = '';
-}
+};
 
 uploadModalClose.addEventListener('click', function () {
   closeModal();
-})
+});
 
 document.addEventListener('keydown', (evt) => {
-  if (evt.key === Keys.ESC || evt.key === Keys.ESCAPE) {
+  if (evt.key === ('Escape' || 'Esc')) {
     closeModal();
   }
 });
