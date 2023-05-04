@@ -1,3 +1,5 @@
+import { checkEsc } from './util.js';
+
 let MAX_SYMBOLS = 20;
 let MAX_HASHTAGS = 5;
 let MAX_COMMENTLENGTH = 140;
@@ -12,7 +14,7 @@ inputComment.addEventListener('input', () => {
   if (inputCommentText.length > MAX_COMMENTLENGTH) {
     inputComment.setCustomValidity('Максимум 140 символов');
   }
-});
+})
 
 inputHashtag.addEventListener('input', () => {
   inputHashtag.setCustomValidity('');
@@ -67,14 +69,20 @@ inputHashtag.addEventListener('input', () => {
   if (inputArray.length > MAX_HASHTAGS) {
     inputHashtag.setCustomValidity('Максимум 5 хэш-тегов');
   }
-});
+
+  if (!inputHashtag.checkValidity()) {
+    inputHashtag.style.border = '2px solid red';
+  } else {
+    inputHashtag.style.border = 'none';
+  }
+})
 
 const onEscapeDown = (evt) => {
-  if (evt.key === ('Escape' || 'Esc')) {
+  if (checkEsc(evt)) {
     evt.preventDefault();
     evt.stopPropagation();
   }
-};
+}
 
-inputHashtag.addEventListener('keydown', onEscapeDown);
-inputComment.addEventListener('keydown', onEscapeDown);
+inputHashtag.addEventListener('keydown', onEscapeDown)
+inputComment.addEventListener('keydown', onEscapeDown)
