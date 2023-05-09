@@ -100,6 +100,6 @@ uploadForm.addEventListener('submit', (evt) => {
 
 
   request(onSuccess, onError, 'POST', new FormData(evt.target))
-})
+});
 
 export { closeModal };
