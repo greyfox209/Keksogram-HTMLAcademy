@@ -2,11 +2,11 @@
 const Keys = {
   ESC: 'Esc',
   ESCAPE: 'Escape',
-}
+};
 
 const checkEsc = (evt) => {
   return evt.key === Keys.ESC || evt.key === Keys.ESCAPE;
-}
+};
 
 // перемешиваем массив
 const shuffleArray = (arr) => {
@@ -18,10 +18,10 @@ const shuffleArray = (arr) => {
     arr[i] = temp;
   }
   return arr;
-}
+};
 
 // таймаут запроса
-const DEBOUNCE_INTERVAL = 500
+const DEBOUNCE_INTERVAL = 500;
 
 const debounce = (cb) => {
   let lastTimeout = null;

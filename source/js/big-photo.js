@@ -6,7 +6,7 @@ const bigPicture = document.querySelector('.big-picture');
 const scrollOff = document.querySelector('body');
 const bigPictureClose = document.querySelector('.big-picture__cancel');
 const commentTemplate = document.querySelector('#comment').content.querySelector('.social__comment');
-const commentList = document.querySelector('.social__comments')
+const commentList = document.querySelector('.social__comments');
 
 let commentsLoaded = [];
 
@@ -41,7 +41,7 @@ const renderComments = (comments) => {
 
   const onCommentsLoaderClick = () => {
     renderComments(comments);
-  }
+  };
 
   commentsCount = (comments.length < COMMENTS_LOAD_STEP) ? comments.length : commentsCount;
   commentsLoaded = comments.slice(0, commentsCount);
@@ -66,13 +66,13 @@ const renderComments = (comments) => {
   }
 
   commentsCount += COMMENTS_LOAD_STEP;
-}
+};
 
 const onBigPictureEscKeyDown = (evt) => {
   if (checkEsc(evt)) {
     onBigPictureCloseClick()
   }
-}
+};
 
 // функция вывода большой картинки/поста
 const show = (picture) => {
@@ -88,7 +88,7 @@ const show = (picture) => {
 
   document.addEventListener('keydown', onBigPictureEscKeyDown)
 
-  renderComments(picture.comments.slice())
+  renderComments(picture.comments.slice());
 };
 
 export { show };
