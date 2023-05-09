@@ -15,6 +15,8 @@ const commentsLoader = bigPicture.querySelector('.comments-loader');
 
 let commentsCount = COMMENTS_LOAD_STEP;
 
+// действия для закрытия большой картинки/поста
+
 const onBigPictureCloseClick = () => {
   bigPicture.classList.add('hidden');
   scrollOff.classList.remove('modal-open');
@@ -23,6 +25,12 @@ const onBigPictureCloseClick = () => {
   document.removeEventListener('keydown', onBigPictureEscKeyDown)
   commentsCount = COMMENTS_LOAD_STEP;
   commentsLoaded = [];
+};
+
+const onBigPictureEscKeyDown = (evt) => {
+  if (checkEsc(evt)) {
+    onBigPictureCloseClick()
+  }
 };
 
 // функция вывода комментариев
@@ -66,12 +74,6 @@ const renderComments = (comments) => {
   }
 
   commentsCount += COMMENTS_LOAD_STEP;
-};
-
-const onBigPictureEscKeyDown = (evt) => {
-  if (checkEsc(evt)) {
-    onBigPictureCloseClick()
-  }
 };
 
 // функция вывода большой картинки/поста
