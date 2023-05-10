@@ -14,7 +14,7 @@ const effectLevelSlider = document.querySelector('.effect-level__slider');
 const uploadPreviewImg = document.querySelector('.img-upload__preview > img');
 const effectLevelValue = document.querySelector('.effect-level__value');
 
-effectLevel.classList.add('visually-hidden')
+effectLevel.classList.add('visually-hidden');
 
 let lastClass = '';
 
@@ -43,7 +43,7 @@ const effects = {
     effectLevel.classList.remove('visually-hidden')
     return `brightness(${(parseInt(effectLevelValue.value, 10) * 3) * 0.01})`;
   },
-}
+};
 
 const onEffectRadioGroupClick = (evt) => {
   if (evt.target.classList.contains('effects__preview')) {
@@ -59,7 +59,7 @@ const onEffectRadioGroupClick = (evt) => {
   }
 };
 
-effectRadioGroup.addEventListener('click', onEffectRadioGroupClick)
+effectRadioGroup.addEventListener('click', onEffectRadioGroupClick);
 
 noUiSlider.create(effectLevelSlider, {
   range: {
@@ -84,6 +84,6 @@ const setDefaultLevel = () => {
   if (lastClass) {
     uploadPreviewImg.classList.remove(lastClass);
   }
-}
+};
 
-export { setDefaultLevel }
+export { setDefaultLevel };

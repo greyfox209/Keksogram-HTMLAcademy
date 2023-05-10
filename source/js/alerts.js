@@ -10,17 +10,17 @@ const removeEscapeAlert = (evt, className) => {
   if (checkEsc(evt)) {
     removeAllert(className);
   }
-}
+};
 
 const onErrorEscKeydown = (evt) => {
   removeEscapeAlert(evt, '.error')
   document.removeEventListener('keydown', onErrorEscKeydown);
-}
+};
 
 const onSuccessEscKeydown = (evt) => {
   removeEscapeAlert(evt, '.success')
   document.removeEventListener('keydown', onSuccessEscKeydown);
-}
+};
 
 const removeAllert = (type) => {
   document.querySelector(type).remove();
@@ -44,13 +44,13 @@ const showError = (text, button) => {
 
   errorButton.addEventListener('click', () => {
     removeAllert('.error');
-  })
+  });
 
   document.addEventListener('keydown', onErrorEscKeydown);
 
   errorFragment.appendChild(errorElement);
   main.appendChild(errorFragment);
-}
+};
 
 const showSuccess = (text) => {
   const successElement = successTemplate.cloneNode(true);
@@ -69,6 +69,6 @@ const showSuccess = (text) => {
 
   successFragment.appendChild(successElement);
   main.appendChild(successFragment);
-}
+};
 
 export { showError, showSuccess };

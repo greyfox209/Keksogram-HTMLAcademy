@@ -8,7 +8,7 @@ const Scale = {
   MAX: 100,
   MIN: 25,
   STEP: 25,
-}
+};
 
 const scrollOff = document.querySelector('body');
 const uploadModal = document.querySelector('.img-upload__overlay');
@@ -22,7 +22,7 @@ uploadInput.addEventListener('change', function () {
   scrollOff.classList.add('modal-open');
   document.addEventListener('keydown', onEditorFormEscapeKeydown);
 
-})
+});
 
 // закрытие окна
 const closeModal = () => {
@@ -33,19 +33,17 @@ const closeModal = () => {
   uploadForm.reset();
   setDefaultLevel();
   document.removeEventListener('keydown', onEditorFormEscapeKeydown);
-}
+};
 
 uploadModalClose.addEventListener('click', function () {
   closeModal();
-})
+});
 
 const onEditorFormEscapeKeydown = (evt) => {
   if (checkEsc(evt)) {
     closeModal();
   }
-}
-
-
+};
 
 // зум картинки
 const buttonPlus = uploadModal.querySelector('.scale__control--bigger');
@@ -57,7 +55,7 @@ let inputHashtag = uploadModal.querySelector('.text__hashtags');
 const resetSettings = () => {
   imagePreview.style = 'transform: scale(1.00)'
   scaleValue.value = '100%';
-}
+};
 
 buttonPlus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value, 10) + Scale.STEP;
@@ -69,7 +67,7 @@ buttonPlus.addEventListener('click', () => {
   scaleValue.value = scale + '%';
   scale = scale / 100;
   imagePreview.style.transform = 'scale(' + scale + ')';
-})
+});
 
 buttonMinus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value, 10) - Scale.STEP;
@@ -81,7 +79,7 @@ buttonMinus.addEventListener('click', () => {
   scaleValue.value = scale + '%';
   scale = scale / 100;
   imagePreview.style.transform = 'scale(' + scale + ')';
-})
+});
 
 // Отправляем фотку
 const uploadForm = document.querySelector('.img-upload__form');
@@ -89,11 +87,11 @@ const uploadForm = document.querySelector('.img-upload__form');
 const onSuccess = () => {
   showSuccess('Ура!')
   closeModal();
-}
+};
 
 const onError = () => {
   showError('ЧТо-то пошло не так', 'Загрузить другой файл');
-}
+};
 
 uploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
